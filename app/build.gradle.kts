@@ -61,9 +61,14 @@ dependencies {
   implementation(libs.androidx.navigation.compose)
   implementation(libs.androidx.lifecycle.runtime.compose)
 
+  implementation(libs.androidx.navigation.fragment)
+  implementation(libs.androidx.navigation.ui)
+
   // Image Loading
   implementation(libs.coil.lib)
   implementation(libs.coil.compose)
+
+  implementation(libs.accompanist.drawablepainter)
 
   implementation(libs.androidx.ui)
   implementation(libs.androidx.ui.graphics)

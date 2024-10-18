@@ -1,77 +1,53 @@
 package com.target.targetcasestudy.data
 
-// TODO this can be deleted once you start fetching the data from the API
+import com.target.targetcasestudy.models.Price
+import com.target.targetcasestudy.models.deals.Deal
+
 object StaticData {
-  val deals: List<DealItem> = listOf(
-    DealItem(
-      id = 0,
-      title = "Product 1",
-      description = "This is product number 1",
-      price = "$10.99",
-      aisle = "a1"
+  val deals = listOf(
+    Deal(
+      id = "0",
+      title = "VIZIO D-Series 40\" Class 1080p Full-Array LED HD Smart TV",
+      aisle = "b2",
+      description = "fetch full product with details from https://api.target.com/mobile_case_study_deals/v1/deals/0",
+      imageUrl = "https://appstorage.target.com/app-data/native-tha-images/1.jpg",
+      regularPrice = Price(22999, "$", "$229.99"),
+      fulfillment = "Online",
+      availability = "In stock"
     ),
-    DealItem(
-      id = 0,
-      title = "Product 2",
-      description = "This is product number 2",
-      price = "$10.99",
-      aisle = "a1"
+    Deal(
+      id = "1",
+      title = "TCL 32\" Class 3-Series HD Smart Roku TV",
+      aisle = "g33",
+      description = "fetch full product with details from https://api.target.com/mobile_case_study_deals/v1/deals/1",
+      imageUrl = "https://appstorage.target.com/app-data/native-tha-images/2.jpg",
+      regularPrice = Price(20999, "$", "$209.99"),
+      salePrice = Price(15999, "$", "$159.99"),
+      fulfillment = "Online",
+      availability = "In stock"
     ),
-    DealItem(
-      id = 0,
-      title = "Product 3",
-      description = "This is product number 3",
-      price = "$10.99",
-      aisle = "a1"
+    Deal(
+      id = "2",
+      title = "Hisense 50\" Class- A6G Series 4K UHD Android Smart TV",
+      aisle = "a1",
+      description = "fetch full product with details from https://api.target.com/mobile_case_study_deals/v1/deals/2",
+      imageUrl = "https://appstorage.target.com/app-data/native-tha-images/3.jpg",
+      regularPrice = Price(38999, "$", "$389.99"),
+      salePrice = Price(31999, "$", "$319.99"),
+      fulfillment = "Online",
+      availability = "In stock"
     ),
-    DealItem(
-      id = 0,
-      title = "Product 4",
-      description = "This is product number 4",
-      price = "$10.99",
-      aisle = "a1"
-    ),
-    DealItem(
-      id = 0,
-      title = "Product 5",
-      description = "This is product number 5",
-      price = "$10.99",
-      aisle = "a1"
-    ),
-    DealItem(
-      id = 0,
-      title = "Product 6",
-      description = "This is product number 6",
-      price = "$10.99",
-      aisle = "a1"
-    ),
-    DealItem(
-      id = 0,
-      title = "Product 7",
-      description = "This is product number 7",
-      price = "$10.99",
-      aisle = "a1"
-    ),
-    DealItem(
-      id = 0,
-      title = "Product 8",
-      description = "This is product number 8",
-      price = "$10.99",
-      aisle = "a1"
-    ),
-    DealItem(
-      id = 0,
-      title = "Product 9",
-      description = "This is product number 9",
-      price = "$10.99",
-      aisle = "a1"
-    ),
-    DealItem(
-      id = 0,
-      title = "Product 10",
-      description = "This is product number 10",
-      price = "$10.99",
-      aisle = "a1"
+
+    Deal(
+      id = "9",
+      title = "Element 32\" 720p HD LED Roku TV",
+      aisle = "x0",
+      description = "fetch full product with details from https://api.target.com/mobile_case_study_deals/v1/deals/9",
+      imageUrl = "https://appstorage.target.com/app-data/native-tha-images/10.jpg",
+      regularPrice = Price(2599, "$", "$25.99"),
+      salePrice = Price(1298, "$", "$12.98"),
+      fulfillment = "Online",
+      availability = "In stock"
     )
   )
 }

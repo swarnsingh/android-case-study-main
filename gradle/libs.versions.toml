@@ -25,6 +25,7 @@ androidx-fragment-ktx = "1.8.4"
 retrofit = "2.11.0"
 okhttp = "4.12.0"
 moshi = "1.15.1"
+accompanist = "0.34.0"
 
 
 [libraries]
@@ -37,6 +38,8 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "androidx-fragment-ktx" }
 
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "nav_version" }
+androidx-navigation-fragment = { module = "androidx.navigation:navigation-fragment", version.ref = "nav_version" }
+androidx-navigation-ui = { module = "androidx.navigation:navigation-ui", version.ref = "nav_version" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "material" }
@@ -53,6 +56,8 @@ kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-c
 
 coil-lib = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+
+accompanist-drawablepainter = { group = "com.google.accompanist", name = "accompanist-drawablepainter", version.ref = "accompanist" }
 
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt_version" }
 hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt_version" }

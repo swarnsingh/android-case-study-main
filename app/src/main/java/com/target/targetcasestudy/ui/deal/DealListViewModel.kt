@@ -2,7 +2,7 @@ package com.target.targetcasestudy.ui.deal
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.target.targetcasestudy.data.Result
+import com.target.targetcasestudy.data.ResultState
 import com.target.targetcasestudy.data.deal.DealRepository
 import com.target.targetcasestudy.data.fetchResponse
 import com.target.targetcasestudy.models.deals.Deal
@@ -17,9 +17,13 @@ class DealListViewModel @Inject constructor(
     private val dealRepository: DealRepository
 ) : ViewModel() {
 
-    private val _dealsStateFlow = MutableStateFlow<Result<List<Deal>>>(Result.Loading())
-    val dealsStateFlow: StateFlow<Result<List<Deal>>>
+    private val _dealsStateFlow = MutableStateFlow<ResultState<List<Deal>>>(ResultState.Loading())
+    val dealsStateFlow: StateFlow<ResultState<List<Deal>>>
         get() = _dealsStateFlow
+
+    init {
+        fetchDeals()
+    }
 
     fun fetchDeals() {
         viewModelScope.launch {

@@ -1,55 +1,44 @@
 package com.target.targetcasestudy.ui.deal
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.target.targetcasestudy.R
-import com.target.targetcasestudy.ui.DealItemAdapter
-import dagger.hilt.android.AndroidEntryPoint
 import androidx.fragment.app.viewModels
-import com.target.targetcasestudy.data.Result
-import com.target.targetcasestudy.data.collectUntilSuccessOrError
-import com.target.targetcasestudy.util.collectWithLifecycle
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.findNavController
+import com.target.targetcasestudy.R
+import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DealListFragment : Fragment() {
 
     private val viewModel: DealListViewModel by viewModels()
-    private val adapter = DealItemAdapter(emptyList())
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_deal_list, container, false)
-
-        view.findViewById<RecyclerView>(R.id.recycler_view).layoutManager =
-            LinearLayoutManager(requireContext())
-        view.findViewById<RecyclerView>(R.id.recycler_view).adapter = adapter
-
-        return view
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        viewModel.fetchDeals()
-
-        viewModel.dealsStateFlow.collectWithLifecycle(this) { result ->
-            when (result) {
-                is Result.Error -> {
-
-                }
-                is Result.Loading -> {
-
-                }
-                is Result.Success -> {
-                    adapter.updateDeals(result.data)
+    ): View {
+        return ComposeView(requireContext()).apply {
+            setViewCompositionStrategy(
+                ViewCompositionStrategy.DisposeOnLifecycleDestroyed(
+                    viewLifecycleOwner
+                )
+            )
+            setContent {
+                val response = viewModel.dealsStateFlow.collectAsStateWithLifecycle()
+                DealListScreen(
+                    response = response.value
+                ) {
+                    findNavController().navigate(
+                        R.id.action_dealListFragment_to_dealDetailsFragment,
+                        bundleOf("dealId" to it.id)
+                    )
                 }
             }
         }

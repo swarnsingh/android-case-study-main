@@ -2,18 +2,19 @@ package com.target.targetcasestudy
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.target.targetcasestudy.ui.deal.DealListFragment
+import androidx.navigation.fragment.NavHostFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-    supportFragmentManager.beginTransaction()
-      .replace(R.id.container, DealListFragment())
-      .commit()
-  }
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        navController.navigate(R.id.dealListFragment)
+    }
 }
