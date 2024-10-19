@@ -18,9 +18,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.size.Size
 import com.target.targetcasestudy.R
-import com.target.targetcasestudy.compose.ImageSource
+import com.target.targetcasestudy.compose.util.ImageSource
 import com.target.targetcasestudy.compose.UIModePreviews
-import com.target.targetcasestudy.compose.painter
+import com.target.targetcasestudy.compose.util.painter
 import com.target.targetcasestudy.compose.theme.TargetAppTheme
 import com.target.targetcasestudy.compose.theme.TargetColor
 import com.target.targetcasestudy.compose.theme.Typography

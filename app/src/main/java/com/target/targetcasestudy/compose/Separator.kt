@@ -13,7 +13,7 @@ import com.target.targetcasestudy.compose.theme.TargetColor
 fun Separator(
     modifier: Modifier = Modifier,
     thickness: Dp = 0.5.dp,
-    color: Color = TargetColor.Gray,
+    color: Color = TargetColor.SeparatorColor,
 ) {
     HorizontalDivider(modifier = modifier, thickness = thickness, color = color)
 }

@@ -41,8 +41,6 @@ android {
 dependencies {
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.appcompat)
-  implementation(libs.androidx.constraintlayout)
-  implementation(libs.androidx.recyclerview)
   implementation(libs.androidx.fragment.ktx)
 
   // Network
@@ -56,10 +54,8 @@ dependencies {
   implementation(libs.moshi.kotlin)
   ksp(libs.moshi.kotlin.codegen)
 
-  implementation(libs.androidx.activity.compose)
   implementation(platform(libs.androidx.compose.bom))
-  implementation(libs.androidx.navigation.compose)
-  implementation(libs.androidx.lifecycle.runtime.compose)
+  implementation(libs.androidx.compose.material.icons)
 
   implementation(libs.androidx.navigation.fragment)
   implementation(libs.androidx.navigation.ui)
@@ -70,16 +66,11 @@ dependencies {
 
   implementation(libs.accompanist.drawablepainter)
 
-  implementation(libs.androidx.ui)
-  implementation(libs.androidx.ui.graphics)
   implementation(libs.androidx.material3)
 
-  implementation(libs.kotlinx.coroutines.android)
-  implementation(libs.kotlinx.coroutines.core)
+ // implementation(libs.kotlinx.coroutines.android)
+ // implementation(libs.kotlinx.coroutines.core)
 
-  implementation(libs.androidx.lifecycle.runtime.ktx)
-
-  implementation(libs.androidx.hilt.navigation.compose)
   implementation(libs.hilt.android)
   ksp(libs.hilt.android.compiler)
 

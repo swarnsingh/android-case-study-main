@@ -33,13 +33,17 @@ class DealListFragment : Fragment() {
             setContent {
                 val response = viewModel.dealsStateFlow.collectAsStateWithLifecycle()
                 DealListScreen(
-                    response = response.value
-                ) {
-                    findNavController().navigate(
-                        R.id.action_dealListFragment_to_dealDetailsFragment,
-                        bundleOf("dealId" to it.id)
-                    )
-                }
+                    response = response.value,
+                    onDealClick = {
+                        findNavController().navigate(
+                            R.id.action_dealListFragment_to_dealDetailsFragment,
+                            bundleOf("dealId" to it.id)
+                        )
+                    },
+                    onRetryClick = {
+                        viewModel.fetchDeals()
+                    }
+                )
             }
         }
     }

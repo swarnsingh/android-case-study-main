@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.target.targetcasestudy.compose.CircularProgressIndicator
 import com.target.targetcasestudy.compose.Separator
+import com.target.targetcasestudy.compose.TargetErrorView
 import com.target.targetcasestudy.compose.TargetScreen
 import com.target.targetcasestudy.compose.UIModePreviews
 import com.target.targetcasestudy.compose.appbar.TargetAppBar
@@ -21,6 +22,7 @@ import com.target.targetcasestudy.models.deals.Deal
 @Composable
 fun DealListScreen(
     response: ResultState<List<Deal>>,
+    onRetryClick: () -> Unit,
     onDealClick: (Deal) -> Unit,
 ) {
     TargetScreen(
@@ -29,16 +31,24 @@ fun DealListScreen(
         },
     ) { paddingValues ->
         when (response) {
-            is ResultState.Error -> {
-
-            }
 
             is ResultState.Loading -> {
                 CircularProgressIndicator()
             }
 
             is ResultState.Success -> {
-                DealListContent(modifier = Modifier.padding(paddingValues), deals = response.data, onDealClick)
+                DealListContent(
+                    modifier = Modifier.padding(paddingValues),
+                    deals = response.data,
+                    onDealClick
+                )
+            }
+
+            is ResultState.Error -> {
+                TargetErrorView(
+                    primaryButtonOnClick = {
+                        onRetryClick.invoke()
+                    })
             }
         }
     }
@@ -76,5 +86,6 @@ private fun DealListScreenPreview() {
     DealListScreen(
         response = ResultState.Success(StaticData.deals),
         onDealClick = {},
+        onRetryClick = {},
     )
 }

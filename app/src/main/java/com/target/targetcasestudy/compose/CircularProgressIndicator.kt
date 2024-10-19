@@ -10,12 +10,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.target.targetcasestudy.R
+import com.target.targetcasestudy.compose.theme.TargetColor
 
 @Composable
 fun CircularProgressIndicator(modifier: Modifier = Modifier) {
@@ -25,7 +25,7 @@ fun CircularProgressIndicator(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         CircularProgressIndicator(
-            color = Color.Blue,
+            color = TargetColor.Primary,
             strokeWidth = 4.dp
         )
         Text(

@@ -1,4 +1,4 @@
-package com.target.targetcasestudy.compose
+package com.target.targetcasestudy.compose.util
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -9,7 +9,6 @@ import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.size.Size
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
-import com.target.targetcasestudy.compose.util.TrimTransparentPixelsTransformation
 
 sealed class ImageSource {
     data class Vector(val imageVector: ImageVector) : ImageSource()
@@ -21,7 +20,8 @@ sealed class ImageSource {
         operator fun invoke(imageVector: ImageVector): Vector = Vector(imageVector)
         operator fun invoke(drawableRes: Int): Resource = Resource(drawableRes)
         operator fun invoke(url: String): Url = Url(url)
-        operator fun invoke(drawable: android.graphics.drawable.Drawable): Drawable = Drawable(drawable)
+        operator fun invoke(drawable: android.graphics.drawable.Drawable): Drawable =
+            Drawable(drawable)
     }
 }
 
@@ -35,7 +35,6 @@ fun ImageSource.painter() = when (this) {
                 ImageRequest.Builder(LocalContext.current)
                     .data(url)
                     .size(size)
-                    .transformations(TrimTransparentPixelsTransformation())
                     .build()
             },
         )
