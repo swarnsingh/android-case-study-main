@@ -21,10 +21,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.target.targetcasestudy.R
 import com.target.targetcasestudy.compose.CircularProgressIndicator
+import com.target.targetcasestudy.compose.ComposePreviewParameterConfig
 import com.target.targetcasestudy.compose.Separator
 import com.target.targetcasestudy.compose.TargetErrorView
 import com.target.targetcasestudy.compose.TargetScreen
@@ -34,7 +36,6 @@ import com.target.targetcasestudy.compose.theme.TargetAppTheme
 import com.target.targetcasestudy.compose.theme.TargetColor
 import com.target.targetcasestudy.compose.theme.TargetShapes
 import com.target.targetcasestudy.data.ResultState
-import com.target.targetcasestudy.data.StaticData
 import com.target.targetcasestudy.models.deals.Deal
 
 @Composable
@@ -143,10 +144,12 @@ private fun AddToCart(
 
 @UIModePreviews
 @Composable
-private fun DealDetailScreenPreview() {
+private fun DealDetailScreenPreview(
+    @PreviewParameter(DealDetailsScreenPreviewProvider::class) previewConfig: ComposePreviewParameterConfig<ResultState<Deal>>,
+) {
     TargetAppTheme {
         DealDetailScreen(
-            response = ResultState.Success(StaticData.deals[1]),
+            response = previewConfig.value(),
             onAddToCartClick = {},
             onBackClick = {},
             onRetryClick = {},
