@@ -8,8 +8,10 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
+import com.target.targetcasestudy.R
 import com.target.targetcasestudy.compose.CircularProgressIndicator
 import com.target.targetcasestudy.compose.ComposePreviewParameterConfig
 import com.target.targetcasestudy.compose.Separator
@@ -28,7 +30,7 @@ fun DealListScreen(
 ) {
     TargetScreen(
         topBar = {
-            TargetAppBar(title = "List")
+            TargetAppBar(title = stringResource(id = R.string.list))
         },
     ) { paddingValues ->
         when (response) {

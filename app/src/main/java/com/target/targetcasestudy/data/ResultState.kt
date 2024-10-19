@@ -12,9 +12,9 @@ suspend fun <T> MutableStateFlow<ResultState<T>>.fetchResponse(
     block: suspend () -> T,
 ) {
     try {
-        value = ResultState.Loading(value.data)
-        value = ResultState.Success(block())
-    } catch (e: Exception) {
-        value = ResultState.Error(value.data, e)
+        emit(ResultState.Loading(value.data))
+        emit(ResultState.Success(block()))
+    } catch (e: Throwable) {
+        emit(ResultState.Error(value.data, e))
     }
 }
